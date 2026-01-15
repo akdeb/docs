@@ -85,7 +85,7 @@
     "primary": {
       "type": "button",
       "label": "Home",
-      "href": "https://elatoai.com"
+      "href": "https://elatoai.com/home"
     }
   },
   "contextual": {
