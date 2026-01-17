@@ -6,6 +6,9 @@
   "content": "🚀 Check out our new docs!",
   "dismissible": true 
 },
+"icons": {
+  "library": "lucide"
+},
 "colors": {
   "primary": "#CF79FF",
   "light": "#E9C7FF",
@@ -16,7 +19,7 @@
     "tabs": [
       {
         "tab": "Docs",
-        "icon": "book-open-cover",
+        "icon": "book-open",
         "groups": [
           {
             "group": "Getting started",

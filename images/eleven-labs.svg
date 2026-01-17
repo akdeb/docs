@@ -1,4 +1,10 @@
 <svg width="876" height="876" viewBox="0 0 876 876" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M518 60H658V816H518V60Z" fill="black"/>
-<path d="M218 60H358V816H218V60Z" fill="black"/>
+<style>
+    path { fill: #000; }
+    @media (prefers-color-scheme: dark) {
+      path { fill: #fff; }
+    }
+  </style>
+<path d="M518 60H658V816H518V60Z" />
+<path d="M218 60H358V816H218V60Z" />
 </svg>
