@@ -1,35 +1,17 @@
 ---
 title: "Quickstart"
 icon: "zap"
-description: "Start building awesome voice AI experiences in minutes"
+description: "Start building awesome voice AI experiences in minutes 🚀"
 ---
 
 <iframe
   className="w-full aspect-video rounded-xl"
-  src="https://www.youtube.com/watch?v=bXrNRpGOJWw"
+  src="https://www.youtube.com/embed/bXrNRpGOJWw"
   title="YouTube video player"
   frameBorder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowFullScreen
 ></iframe>
-
-## Hardware Setup
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="images/pcb-design.png"
-/>
-
-## What you'll need
-
-1. ESP32-S3 (by Espressif / Arduino)
-2. Cables
-3. INMP441 (mic)
-4. MAX98357A (amp)
-5. Speaker
-6. LED
-7. Button / Touchpad
-8. USB cable (power)
 
 ### Step 1: Clone the repository
 
@@ -118,38 +100,37 @@ Then set the following in `.env.local`:
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY=<your-supabase-anon-key>`
 - `OPENAI_API_KEY=<your-openai-api-key>`
 
-Run the dev server:
+Run the local NextJS setup:
 
 ```bash
 npm run dev
 ```
-
+<Callout icon="info" color="#FFC107">
 To Login, use these credentials for local development:
 
 - **Email**: `admin@elatoai.com`
 - **Password**: `admin`
 
-### Choose edge server option (FREE USAGE)
+</Callout>
+
+### Choose Edge Server option
 
 <Tip>
 
-**ELATO MODE (hosted):** Got your own ESP32 DIY hardware device? We offer a fully hosted server for free for up to 30 minutes per month. Register your device on the settings page and it will automatically connect to our edge server. Check out our Pricing page for more details.
+1. **ELATO MODE (Free usage):** Got your own ESP32 DIY hardware device? 
+   We offer a fully hosted server for free for up to 30 minutes per month. Register your device on the settings page and it will automatically connect to our edge server.
+   - Sign up on [Elato](https://elatoai.com)
+   - Register your device with your ESP32-S3's MAC Address in the [Settings page](https://elatoai.com/home/settings)
+2. **DEV MODE (Local on your computer):** Alternatively, you can run your own edge server locally by following the instructions below and in the Deno server README.
+
+**Pro Tip:** You can adjust your mode in `firmware-arduino/Config.h`.
 
 </Tip>
 
-<Note>
 
-**DEV MODE (local):** Alternatively, you can run your own edge server locally by following the instructions below and in the Deno server README.
+### Step 4: If you run your own Deno edge server locally
 
-</Note>
-
-**Pro Tip:** You can adjust this server setting in `firmware-arduino/Config.h`.
-
-### Step 4 (Optional): Run the Deno edge server locally
-
-From the repo root:
-
-The commands below are the same on macOS, Linux, and Windows (via WSL2).
+The commands below are the same on macOS, Linux, and Windows (via WSL2). From the repo root:
 
 ```bash
 cd server-deno
@@ -173,10 +154,11 @@ deno run -A --env-file=.env main.ts
 
 ### Step 5: Set up your firmware dev environment
 
+<CardGroup>
  <Card
     title="PlatformIO (recommended)"
     icon="/images/pio.png"
-    href="/essentials/settings"
+    href="/platformio"
       horizontal
   >
   </Card>
@@ -184,11 +166,12 @@ deno run -A --env-file=.env main.ts
    <Card
     title="Arduino IDE"
     icon="/images/arduino.png"
-    href=""
+    href="/arduino"
       horizontal
-
   >
   </Card>
+</CardGroup>
+
 
 ### Step 6: Setup complete!
 

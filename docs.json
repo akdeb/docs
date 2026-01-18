@@ -2,10 +2,6 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "ElatoAI",
-  "banner": {
-  "content": "🚀 Check out our new docs!",
-  "dismissible": true 
-},
 "icons": {
   "library": "lucide"
 },
@@ -56,6 +52,7 @@
           {
             "group": "Additional Docs",
             "pages": [
+              "blog/firmware",
               "blog/deploying-globally",
               "blog/multiple-devices",
               "blog/use-cases",
@@ -89,8 +86,6 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
      "chatgpt",
      "claude",
      "perplexity",

@@ -4,84 +4,38 @@ description: 'Your guide to using PlatformIO for your Voice AI Projects'
 icon: '/images/pio.png'
 ---
 
-The navigation menu is the list of links on every website.
+<Card title="Before you start" icon="lightbulb" href="/blog/firmware">
+  Make sure you follow the [Firmware guide](/blog/firmware) first.
+</Card>
 
-You will likely update `docs.json` every time you add a new page. Pages do not show up automatically.
+## How to setup
 
-## Navigation syntax
+1. Install Visual Studio Code and the PlatformIO extension
+2. Clone this repository
+3. Open the project folder in PlatformIO: `Open > Open Project > firmware-arduino`
+4. Edit `src/Config.cpp` with your server details:
+   - If using locally: Set your computer's IP address in `ws_server` and `backend_server`
+   - If using production: Ensure you have proper certificates set
+5. **Build** + **Upload** to your ESP32
 
-Our navigation syntax is recursive which means you can make nested navigation groups. You don't need to include `.mdx` in page names.
 
-<CodeGroup>
+## Deploying and Advanced Config
 
-```json Regular Navigation
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Getting Started",
-          "pages": ["quickstart"]
-        }
-      ]
-    }
-  ]
-}
+1. Add your Deno and Vercel server Root CA to `Config.cpp`. You can find the Root CA of vercel by running the following command and picking the Root certificate in the chain:
+
+```bash
+# vercel server root ca
+openssl s_client -showcerts -connect <your-vercel-deomain>.vercel.app:443 </dev/null
+
+# deno server root ca
+openssl s_client -showcerts -connect <your-deno-domain>.deno.dev:443 </dev/null
 ```
 
-```json Nested Navigation
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Getting Started",
-          "pages": [
-            "quickstart",
-            {
-              "group": "Nested Reference Pages",
-              "pages": ["nested-reference-page"]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
+2. Edit `Config.cpp` to customize:
+   - Server addresses and ports
+   - Audio sample rate (default 24kHz)
+   - Pin assignments for different boards
 
-</CodeGroup>
+3. For development, uncomment `#define DEV_MODE` in `Config.h` to use local servers without SSL. To deploy to production, comment out `#define DEV_MODE` and set the proper server addresses and ports.
 
-## Folders
-
-Simply put your MDX files in folders and update the paths in `docs.json`.
-
-For example, to have a page at `https://yoursite.com/your-folder/your-page` you would make a folder called `your-folder` containing an MDX file called `your-page.mdx`.
-
-<Warning>
-
-You cannot use `api` for the name of a folder unless you nest it inside another folder. Mintlify uses Next.js which reserves the top-level `api` folder for internal server calls. A folder name such as `api-reference` would be accepted.
-
-</Warning>
-
-```json Navigation With Folder
-"navigation": {
-  "tabs": [
-    {
-      "tab": "Docs",
-      "groups": [
-        {
-          "group": "Group Name",
-          "pages": ["your-folder/your-page"]
-        }
-      ]
-    }
-  ]
-}
-```
-
-## Hidden pages
-
-MDX files not included in `docs.json` will not show up in the sidebar but are accessible through the search bar and by linking directly to them.
+4. To use the button functions, uncomment `#define TOUCH_MODE` in `Config.h`
